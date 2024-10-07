@@ -15,6 +15,6 @@ run_server2:
 	go run $(DIRSERVER)/main.go
 	
 test:
-	go test $(DIRTEST)
+	go test $(DIRTEST) -v
 	
 	

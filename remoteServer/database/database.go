@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"log/slog"
 	"music_service/config"
-	sw "music_service/swaggerAPI/go"
+	sw "music_service/remoteServer/go"
 	"sync"
 	"time"
 
