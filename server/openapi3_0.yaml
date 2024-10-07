@@ -1,0 +1,287 @@
+openapi: 3.0.3
+info:
+  title: Music info
+  version: 0.0.1
+servers:
+- url: /
+paths:
+  /add:
+    post:
+      parameters:
+      - name: group
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: song
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: string
+        "400":
+          description: Bad request
+          content:
+            application/json:
+               schema:
+                type: string
+        "500":
+          description: Internal server error
+  /delete:
+    post:
+      parameters:
+      - name: group
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: song
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: string
+        "400":
+          description: Bad request
+          content:
+            application/json:
+               schema:
+                type: string
+        "500":
+          description: Internal server error
+  /change:
+    post:
+      parameters:
+      - name: group
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: song
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: releaseDate
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: text
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: link
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: string
+        "400":
+          description: Bad request
+          content:
+            application/json:
+               schema:
+                type: string
+        "500":
+          description: Internal server error
+  /getSongText:
+    post:
+      parameters:
+      - name: group
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: song
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: releaseDate
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: text
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: link
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/SongText'
+        "400":
+          description: Bad request
+          content:
+            application/json:
+               schema:
+                type: string
+        "500":
+          description: Internal server error
+  /getSongs:
+    post:
+      parameters:
+      - name: group
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: song
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: releaseDate
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: text
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: link
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/SongWithDetail'
+        "400":
+          description: Bad request
+          content:
+            application/json:
+               schema:
+                type: string
+        "500":
+          description: Internal server error
+components:
+  schemas:
+    SongText:
+      required:
+      - number
+      - text
+      type: object
+      properties:
+        number:
+          type: integer
+          example: 1
+        text:
+          type: string
+          example: "Ooh baby, don't you know I suffer?\\nOoh baby"
+      example:
+        number: 1
+        text: "Ooh baby, don't you know I suffer?\\nOoh baby, can" 
+    SongWithDetail:
+      required:
+      - number
+      - group
+      - song
+      - link
+      - releaseDate
+      - text
+      type: object
+      properties:
+        number:
+          type: integer
+          example: 1
+        group:
+          type: string
+          example: Muse
+        song:
+          type: string
+          example: Supermassive Black Hole
+        releaseDate:
+          type: string
+          example: 16.07.2006
+        text:
+          type: string
+          example: "Ooh baby, don't you know I suffer?\\nOoh baby, can you hear me"
+        link:
+          type: string
+          example: https://www.youtube.com/watch?v=Xsp3_a-PMTw
+      example:
+        number: 1
+        group: Muse
+        song: Supermassive Black Hole
+        releaseDate: 16.07.2006
+        link: https://www.youtube.com/watch?v=Xsp3_a-PMTw
+        text: "Ooh baby, don't you know I suffer?\\nOoh baby, can you hear me moan?"
+          
