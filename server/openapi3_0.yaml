@@ -139,27 +139,6 @@ paths:
         explode: true
         schema:
           type: string
-      - name: releaseDate
-        in: query
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-      - name: text
-        in: query
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-      - name: link
-        in: query
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
       responses:
         "200":
           description: Ok
